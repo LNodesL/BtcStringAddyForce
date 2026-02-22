@@ -1,0 +1,23 @@
+{
+  "name": "btc-vanity-suffix-generator",
+  "version": "1.0.0",
+  "description": "Local Bitcoin vanity suffix generator with secure key generation.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "bitcoin",
+    "vanity",
+    "address",
+    "taproot"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bitcoinjs-lib": "^6.1.7",
+    "ecpair": "^3.0.0",
+    "express": "^4.21.2",
+    "tiny-secp256k1": "^2.2.3"
+  }
+}

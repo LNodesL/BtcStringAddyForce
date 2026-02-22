@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitcoin Vanity Suffix Generator</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Bitcoin Vanity Suffix Generator</h1>
+      <p class="subtitle">
+        Local-only generator for vanity suffixes. Use an offline machine for
+        real funds.
+      </p>
+
+      <form id="generatorForm" class="card">
+        <label for="suffix">Required ending</label>
+        <input
+          id="suffix"
+          name="suffix"
+          type="text"
+          placeholder="e.g. blah"
+          required
+          autocomplete="off"
+        />
+
+        <label for="addressType">Address type</label>
+        <select id="addressType" name="addressType">
+          <option value="p2tr">Taproot (P2TR, best practice)</option>
+          <option value="p2wpkh">Native SegWit (P2WPKH)</option>
+          <option value="p2pkh">Legacy Base58 (P2PKH)</option>
+        </select>
+
+        <label for="network">Network</label>
+        <select id="network" name="network">
+          <option value="bitcoin">Mainnet</option>
+          <option value="testnet">Testnet</option>
+        </select>
+
+        <p id="typeHint" class="hint"></p>
+
+        <div class="actions">
+          <button id="startBtn" type="submit">Start Search</button>
+          <button id="stopBtn" type="button" disabled>Stop</button>
+        </div>
+      </form>
+
+      <section class="card">
+        <h2>Status</h2>
+        <div class="status-grid">
+          <div><span class="label">State:</span> <span id="state">idle</span></div>
+          <div><span class="label">Attempts:</span> <span id="attempts">0</span></div>
+          <div><span class="label">Rate:</span> <span id="rate">0/s</span></div>
+          <div><span class="label">Elapsed:</span> <span id="elapsed">0.0s</span></div>
+        </div>
+        <p id="error" class="error"></p>
+      </section>
+
+      <section class="card">
+        <h2>Match</h2>
+        <div class="result-row">
+          <span class="label">Address</span>
+          <code id="resultAddress">-</code>
+        </div>
+        <div class="result-row">
+          <span class="label">Private key (WIF)</span>
+          <code id="resultWif">-</code>
+        </div>
+        <div class="result-row">
+          <span class="label">Private key (hex)</span>
+          <code id="resultPrivHex">-</code>
+        </div>
+        <div class="result-row">
+          <span class="label">Public key (hex)</span>
+          <code id="resultPubHex">-</code>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
